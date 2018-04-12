@@ -27,15 +27,14 @@ public class Springbootdemo1Application {
     public String hello1(User user, Admin admin) {
         return "user:" + user.toString() + " admin" + admin.toString();
     }
+    @InitBinder("admin")
+    public void initAdmin(WebDataBinder webDataBinder) {
+        webDataBinder.setFieldDefaultPrefix("admin.");
+    }
 
     @InitBinder("user")
     public void initUser(WebDataBinder webDataBinder) {
         webDataBinder.setFieldDefaultPrefix("user.");
-    }
-
-    @InitBinder("admin")
-    public void initAdmin(WebDataBinder webDataBinder) {
-        webDataBinder.setFieldDefaultPrefix("admin.");
     }
 
     @RequestMapping("date")
