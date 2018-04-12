@@ -14,7 +14,11 @@ import java.util.Date;
 @RestController
 @SpringBootApplication
 public class Springbootdemo1Application {
-
+    @RequestMapping("date")
+    @ResponseBody
+    public String date(Date date) {
+        return date.toString();
+    }
     @RequestMapping(value = "hello")
     @ResponseBody
     public String hello(@RequestParam(name = "xage", required = false) Integer age) {
@@ -38,11 +42,7 @@ public class Springbootdemo1Application {
         webDataBinder.setFieldDefaultPrefix("admin.");
     }
 
-    @RequestMapping("date")
-    @ResponseBody
-    public String date(Date date) {
-        return date.toString();
-    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(Springbootdemo1Application.class, args);
