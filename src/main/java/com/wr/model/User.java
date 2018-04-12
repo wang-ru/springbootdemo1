@@ -6,7 +6,7 @@ package com.wr.model;
 public class User {
     private String name;
     private Integer age;
-
+    private String sex;
     public String getName() {
         return name;
     }
